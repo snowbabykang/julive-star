@@ -1,6 +1,6 @@
 # julive-star
 
-> 一个五星评分组件，可评半星，可以使用npm install julive-star 安装组件，使用方法看App.vue
+> 一个五星评分组件，可评半星，发布后可以使用npm install julive-star 安装组件，使用方法看App.vue
 
 ## Build Setup
 
