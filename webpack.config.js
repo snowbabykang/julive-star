@@ -1,10 +1,15 @@
 var path = require('path')
 var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
-  entry: NODE_ENV === 'development' ? './src/main.js' : './index.js',
-  output: {
+  entry: NODE_ENV === 'development' ? './examples/main.js' : './index.js',
+  output: NODE_ENV === 'development' ? {
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
+    filename: 'app.js',
+  } : {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'star.js',
@@ -41,6 +46,13 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
+    }),
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
